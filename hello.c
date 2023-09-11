@@ -6,6 +6,12 @@
 
 #include <stdio.h>
 
+/***********************************
+ * Function : int main(void)
+ * Input    : none
+ * Output   : Returns 0 on success
+ * Prints "Hello, World!" greeting.
+ **********************************/
 int main(void) {
     printf("Hello, World!\n");
     return 0;
