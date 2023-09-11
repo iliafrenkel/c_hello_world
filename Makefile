@@ -1,7 +1,7 @@
 CC=gcc
 BUILD_DIR=./build
 OBJ_DIR=./obj
-CFLAGS=-I. -Wall
+CFLAGS=-I. -Wall -g
 
 _OBJ = hello.o
 OBJ = $(patsubst %,$(OBJ_DIR)/%,$(_OBJ))
