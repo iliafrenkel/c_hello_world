@@ -1,9 +1,10 @@
 CC=gcc
 BUILD_DIR=./build
+INCLUDE_DIR=./include
 OBJ_DIR=./obj
-CFLAGS=-I. -Wall -g
+CFLAGS=-I$(INCLUDE_DIR) -Wall -g
 
-_OBJ = hello.o
+_OBJ = hello.o greeter.o
 OBJ = $(patsubst %,$(OBJ_DIR)/%,$(_OBJ))
 
 .PHONY: clean
