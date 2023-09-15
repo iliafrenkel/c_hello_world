@@ -4,10 +4,32 @@
 
 #include <stdio.h>
 
+/* The greeter API */
+struct greeter_api {
+    int (*say_hello)(char *);
+    int (*say_goodbye)(void);
+};
+
+/* Implementation of the greeter API */
+
 /*
- * Returns a greeting as a string.
+ * Prints a greeting for a given name.
  */
-char *greeting() { return "Hello, World!\n"; }
+int say_hello_fn(char *name) {
+    printf("Hello, %s!\n", name);
+    return 0;
+}
+
+/*
+ * Prints a goodbye.
+ */
+int say_goodbye_fn(void) {
+    printf("Sayōnara!\n");
+    return 0;
+}
+
+struct greeter_api greeter_api = {.say_hello = say_hello_fn,
+                                  .say_goodbye = say_goodbye_fn};
 
 /*
  * Prints a greeting and returns.
@@ -15,7 +37,8 @@ char *greeting() { return "Hello, World!\n"; }
  * Input    : none
  * Output   : Returns 0 on success
  */
-int main(void) {
-    printf("%s", greeting());
+int main(int argc, char *argv[]) {
+    greeter_api.say_hello(argv[1]);
+    greeter_api.say_goodbye();
     return 0;
 }
