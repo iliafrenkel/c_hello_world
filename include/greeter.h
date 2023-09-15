@@ -11,7 +11,6 @@ struct greeter_api {
     int (*say_goodbye)(void);
 };
 
-int say_hello_fn(char *name);
-int say_goodbye_fn(void);
+extern struct greeter_api greeter_api;
 
 #endif // !GREETER_H

@@ -17,8 +17,6 @@ int main(int argc, char *argv[]) {
         printf("Usage: %s <name>\n", argv[0]);
         return -1;
     }
-    struct greeter_api greeter_api = {.say_hello = say_hello_fn,
-                                      .say_goodbye = say_goodbye_fn};
     greeter_api.say_hello(argv[1]);
     greeter_api.say_goodbye();
     return 0;

@@ -22,4 +22,7 @@ int say_goodbye_fn(void) {
     printf("Sayōnara!\n");
     return 0;
 }
+
+struct greeter_api greeter_api = {.say_hello = say_hello_fn,
+                                  .say_goodbye = say_goodbye_fn};
 /**/
