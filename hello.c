@@ -12,7 +12,11 @@
  * Output   : Returns 0 on success
  */
 int main(int argc, char *argv[]) {
-    // TODO: Check if we have at least one argument.
+    if (argc < 2) {
+        printf("Missing argument.\n");
+        printf("Usage: %s <name>\n", argv[0]);
+        return -1;
+    }
     struct greeter_api greeter_api = {.say_hello = say_hello_fn,
                                       .say_goodbye = say_goodbye_fn};
     greeter_api.say_hello(argv[1]);
