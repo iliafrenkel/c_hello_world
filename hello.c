@@ -11,7 +11,7 @@ struct greeter_api {
 };
 
 /* Implementation of the greeter API */
-
+// TODO: move the API into a separate file.
 /*
  * Prints a greeting for a given name.
  */
@@ -31,6 +31,8 @@ int say_goodbye_fn(void) {
 struct greeter_api greeter_api = {.say_hello = say_hello_fn,
                                   .say_goodbye = say_goodbye_fn};
 
+/**/
+
 /*
  * Prints a greeting and returns.
  * Function : int main(void)
@@ -38,6 +40,7 @@ struct greeter_api greeter_api = {.say_hello = say_hello_fn,
  * Output   : Returns 0 on success
  */
 int main(int argc, char *argv[]) {
+    // TODO: Check if we have at least one argument.
     greeter_api.say_hello(argv[1]);
     greeter_api.say_goodbye();
     return 0;
