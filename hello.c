@@ -8,6 +8,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define ANSI_COLOR_RED "\x1b[31m"
+#define ANSI_COLOR_GREEN "\x1b[32m"
+#define ANSI_COLOR_YELLOW "\x1b[33m"
+#define ANSI_COLOR_BLUE "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN "\x1b[36m"
+#define ANSI_COLOR_RESET "\x1b[0m"
+
 #define MAX_NAME_SIZE 50
 
 /*
@@ -28,9 +36,10 @@ void get_name(char *pszName, size_t buffSize) {
      */
     if (fgets(pszName, buffSize, stdin) == NULL) {
         if (feof(stdin) != 0) {
-            printf("\n\tError: unexpected end of file.\n");
+            printf(ANSI_COLOR_YELLOW
+                   "\nError: unexpected end of file.\n" ANSI_COLOR_RESET);
         } else if (ferror(stdin) != 0) {
-            perror("\n\tError");
+            perror(ANSI_COLOR_YELLOW "\nError" ANSI_COLOR_RESET);
         }
         clearerr(stdin);
         return;
@@ -56,7 +65,7 @@ int main(int argc, char *argv[]) {
      * If it's not there, we ask for it.
      */
     if (argc < 2) {
-        printf("Your name: ");
+        printf(ANSI_COLOR_MAGENTA "Your name: " ANSI_COLOR_RESET);
         get_name(name, MAX_NAME_SIZE);
         if (strlen(name) == 0) {
             greeter_api.say_goodbye();
