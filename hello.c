@@ -27,11 +27,10 @@ void get_name(char *pszName, size_t buffSize) {
      * considered unsafe. They don't check for the length of the input!
      */
     if (fgets(pszName, buffSize, stdin) == NULL) {
-        printf("\rCouldn't read the user input: ");
-        if (feof(stdin) != 0) { // this happens if you press Ctrl+D
-            printf("unexpected end of file.\n");
-        } else if (ferror(stdin) != 0) { // I don't know what can cause this
-            printf("error while reading from a file.\n");
+        if (feof(stdin) != 0) {
+            printf("\n\tError: unexpected end of file.\n");
+        } else if (ferror(stdin) != 0) {
+            perror("\n\tError");
         }
         clearerr(stdin);
         return;
