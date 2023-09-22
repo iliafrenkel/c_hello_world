@@ -28,11 +28,10 @@ void get_name(char *pszName, size_t buffSize) {
      * input. Really?!
      */
     if (fgets(pszName, buffSize, stdin) == NULL) {
-        printf("\rCouldn't read the user input: ");
         if (feof(stdin) != 0) {
-            printf("unexpected end of file.\n");
+            printf("\n\tError: unexpected end of file.\n");
         } else if (ferror(stdin) != 0) {
-            printf("error while reading from a file.\n");
+            perror("\n\tError");
         }
         clearerr(stdin);
         return;
