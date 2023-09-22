@@ -58,7 +58,7 @@ void get_name(char *pszName, size_t buffSize) {
  * Output   : Returns 0 on success
  */
 int main(int argc, char *argv[]) {
-    char name[MAX_NAME_SIZE]; // The name to greet
+    char name[MAX_NAME_SIZE] = "World"; // The name to greet
 
     /*
      * We expect the name to greet as a command line parameter.
