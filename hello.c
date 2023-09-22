@@ -58,6 +58,10 @@ int main(int argc, char *argv[]) {
     if (argc < 2) {
         printf("Your name: ");
         get_name(name, MAX_NAME_SIZE);
+        if (strlen(name) == 0) {
+            greeter_api.say_goodbye();
+            return 0;
+        }
     } else {
         strncpy(name, argv[1], MAX_NAME_SIZE);
     }
